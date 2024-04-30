@@ -2,3 +2,5 @@ spring:
   data:
     mongodb:
       uri: ${DB_CONNECTION}
+      auto-index-creation: true
+  application: webflux-101
