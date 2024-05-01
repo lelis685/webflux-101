@@ -2,7 +2,6 @@ package com.example.exceptions;
 
 import lombok.Builder;
 import lombok.Data;
-import org.springframework.cglib.core.Local;
 
 import java.io.Serial;
 import java.io.Serializable;
