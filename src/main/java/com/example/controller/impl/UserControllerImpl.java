@@ -1,6 +1,7 @@
 package com.example.controller.impl;
 
 import com.example.controller.UserController;
+import com.example.mapper.UserMapper;
 import com.example.model.request.UserRequest;
 import com.example.model.response.UserResponse;
 import com.example.service.UserService;
@@ -18,6 +19,7 @@ import reactor.core.publisher.Mono;
 public class UserControllerImpl implements UserController {
 
     private final UserService service;
+    private final UserMapper mapper;
 
     @Override
     public ResponseEntity<Mono<Void>> save(UserRequest request) {
@@ -28,7 +30,9 @@ public class UserControllerImpl implements UserController {
 
     @Override
     public ResponseEntity<Mono<UserResponse>> find(String id) {
-        return null;
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(service.findById(id).map(mapper::toResponse));
     }
 
     @Override

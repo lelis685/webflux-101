@@ -2,6 +2,7 @@ package com.example.mapper;
 
 import com.example.entity.User;
 import com.example.model.request.UserRequest;
+import com.example.model.response.UserResponse;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.NullValueCheckStrategy;
@@ -18,4 +19,5 @@ public interface UserMapper {
     @Mapping(target = "id", ignore = true)
     User toEntity(final UserRequest request);
 
+    UserResponse toResponse(final User user);
 }
